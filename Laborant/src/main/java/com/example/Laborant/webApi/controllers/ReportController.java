@@ -3,8 +3,10 @@ package com.example.Laborant.webApi.controllers;
 import java.sql.Date;
 import java.util.List;
 import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -31,13 +33,13 @@ public class ReportController {
     private ModelMapperService modelMapperService;
     private ReportService reportService;
 
-    @PostMapping
+    @PostMapping("/add")
     @ResponseStatus(code = HttpStatus.CREATED)
     public void add(@RequestBody CreateReportRequest createReportRequest) {
         reportService.add(createReportRequest);
     }
 
-    @GetMapping
+    @GetMapping("/getall")
     public List<GetAllReportsResponse> getAll() {
         return reportService.getAllReports();
     }
@@ -54,6 +56,7 @@ public class ReportController {
         laborant.setLastName("Demir");
 
         Report report = new Report();
+        report.setId(6);
         report.setPatient(patient);
         report.setLaborant(laborant);
         report.setDiagnostic("Grip");
@@ -64,8 +67,9 @@ public class ReportController {
         return modelMapperService.forResponse().map(report, GetAllReportsResponse.class);
     }
 
-    @PatchMapping("/{id}")
-    void update(UpdateReportRequest updateReportRequest) {
+    @PatchMapping("/edit")
+    void update(
+            @RequestBody UpdateReportRequest updateReportRequest) {
 
         reportService.update(updateReportRequest);
 
@@ -109,8 +113,13 @@ public class ReportController {
     }
 
     @GetMapping("/{id}")
-    public GetReportByIdResponse getReportById(@RequestParam int id) {
+    public GetReportByIdResponse getReportById(@PathVariable int id) {
         return reportService.getReportById(id);
+    }
+
+    @DeleteMapping("/delete/{id}")
+    public void deleteById(@PathVariable int id) {
+        reportService.delete(id);
     }
 
 }

@@ -8,14 +8,11 @@
 		<version>3.3.2</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>kodlama.io</groupId>
-	<artifactId>rentACar</artifactId>
+	<groupId>com.example</groupId>
+	<artifactId>Laborant</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>pom</packaging>
-	<modules>
-		<module>demo</module>
-	</modules>
-	<name>rentACar</name>
+	<packaging>jar</packaging>
+	<name>Laborant</name>
 	<description>Demo project for Spring Boot</description>
 	<url/>
 	<licenses>

@@ -168,4 +168,9 @@ public class ReportManager implements ReportService {
                 return getReportByIdResponse;
         }
 
+        @Override
+        public void delete(int id) {
+                reportRepository.deleteById(id);
+        }
+
 }

@@ -11,6 +11,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class GetAllReportsResponse {
 
+    private int id;
+
     private String diagnostic;
     private String diagnosticDetail;
     private Date reportDate;

@@ -24,6 +24,8 @@ public interface ReportService {
     // arama yapmaya
     // çalışıyoruz
 
+    void delete(int id);
+
     public List<GetAllReportsResponse> searchByLaborant(String firstName, String lastName);
 
     public List<GetAllReportsResponse> getAllReportsSorted(String direction);
