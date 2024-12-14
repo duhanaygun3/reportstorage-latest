@@ -1,8 +1,8 @@
 package com.example.Laborant.webApi.controllers;
 
-import java.sql.Date;
 import java.util.List;
 import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
@@ -28,6 +28,7 @@ import lombok.AllArgsConstructor;
 
 @RestController
 @RequestMapping("api/reports")
+@CrossOrigin(origins = "http://localhost:3000")
 @AllArgsConstructor
 public class ReportController {
     private ModelMapperService modelMapperService;
@@ -61,7 +62,6 @@ public class ReportController {
         report.setLaborant(laborant);
         report.setDiagnostic("Grip");
         report.setDiagnosticDetail("Yüksek ateş");
-        report.setReportDate(Date.valueOf("2024-11-28"));
 
         // ModelMapper ile dönüşümü test edin
         return modelMapperService.forResponse().map(report, GetAllReportsResponse.class);

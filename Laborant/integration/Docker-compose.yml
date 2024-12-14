@@ -12,10 +12,22 @@ services:
     networks:
       - reportstorage-network
 
+  react-app:
+    build:
+      context: ../laborant-fe # Dockerfile.react, laborant-fe dizininde
+      dockerfile: Dockerfile.react
+    ports:
+      - "3000:80"
+    depends_on:
+      - reportstorage
+    networks:
+      - reportstorage-network
+
+
   reportstorage:
     image: reportstorage:0.0.1
     ports:
-    - "9090:8080"
+    - "8080:8080"
     build:
       context: ..
       dockerfile: Dockerfile

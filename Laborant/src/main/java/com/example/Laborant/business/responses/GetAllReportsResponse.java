@@ -1,6 +1,6 @@
 package com.example.Laborant.business.responses;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -15,7 +15,7 @@ public class GetAllReportsResponse {
 
     private String diagnostic;
     private String diagnosticDetail;
-    private Date reportDate;
+    private LocalDate reportDate;
 
     private String patientFirstName; // Hasta adı
     private String patientLastName; // Hasta soyadı

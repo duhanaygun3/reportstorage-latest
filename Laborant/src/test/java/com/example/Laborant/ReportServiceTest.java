@@ -79,6 +79,7 @@ public class ReportServiceTest {
         report.setPatient(patient);
 
         GetReportByIdResponse getReportByIdResponseExpected = new GetReportByIdResponse();
+        getReportByIdResponseExpected.setId(1);
         getReportByIdResponseExpected.setDiagnostic("Agri");
         getReportByIdResponseExpected.setDiagnosticDetail("karin agrisi");
         getReportByIdResponseExpected.setLaborantFirstName("Duhan");
@@ -128,7 +129,7 @@ public class ReportServiceTest {
         CreateReportRequest createReportRequest = new CreateReportRequest();
         createReportRequest.setDiagnostic("Teshis");
         createReportRequest.setDiagnosticDetail("teshis detayi.");
-        createReportRequest.setReportDate("2024-12-06");
+        // createReportRequest.setReportDate("2024-12-06");
         createReportRequest.setLaborant_id(1);
         createReportRequest.setPatient_id(2);
 

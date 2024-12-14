@@ -1,0 +1,29 @@
+# 1. Aşama: Node.js ile React uygulamasını build etme
+FROM node:18-alpine as build
+
+# Çalışma dizinini ayarla
+WORKDIR /usr/src/app
+
+# package.json ve package-lock.json dosyalarını kopyala
+COPY /package*.json ./
+
+# Bağımlılıkları yükle
+RUN npm install
+
+# React projesini kopyala
+COPY  . .
+
+# React uygulamasını build et
+RUN npm run build
+
+# 2. Aşama: Nginx ile dağıtım
+FROM nginx:alpine
+
+# İlk aşamadan (build aşaması) üretilen build dosyasını Nginx'in public dizinine kopyala
+COPY --from=build /usr/src/app/build /usr/share/nginx/html
+
+# Nginx'i dışarıya aç
+EXPOSE 80
+
+# Nginx'i başlat
+CMD ["nginx", "-g", "daemon off;"]

@@ -16,10 +16,11 @@ class Report extends Component {
 
     async componentDidMount() {
         try {
-            const response = await axios.get('/api/reports/getall');
+            const response = await axios.get('http://localhost:8080/api/reports/getall');
             this.setState({
                 reports: response.data
             });
+            console.log("Sa",response);
         } catch (error) {
             console.error("Error fetching reports:", error);
         }
@@ -39,7 +40,7 @@ class Report extends Component {
             return;
         }
         try {
-            await axios.delete(`/api/reports/delete/${id}`); // Raporu silme API çağrısı
+            await axios.delete(`http://localhost:8080/api/reports/delete/${id}`); // Raporu silme API çağrısı
             this.setState({
                 reports: this.state.reports.filter(report => report.id !== id) // Silinen raporu listeden çıkar
             });

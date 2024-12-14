@@ -19,9 +19,9 @@ class EditReport extends Component {
 
         try {
             // Raporu, hastaları ve laborantları al
-            const reportResponse = await axios.get(`/api/reports/${id}`);
-            const patientsResponse = await axios.get('/api/patients');
-            const laborantsResponse = await axios.get('/api/laborants'); // Laborantları al
+            const reportResponse = await axios.get(`http://localhost:8080/api/reports/${id}`);
+            const patientsResponse = await axios.get('http://localhost:8080/api/patients');
+            const laborantsResponse = await axios.get('http://localhost:8080/api/laborants'); // Laborantları al
 
             this.setState({
                 report: reportResponse.data,
@@ -50,7 +50,7 @@ class EditReport extends Component {
         const { diagnostic, diagnosticDetail, reportDate, patientId, laborantId } = this.state.report;
 
         try {
-            await axios.patch('/api/reports/edit', {
+            await axios.patch('http://localhost:8080/api/reports/edit', {
                 id,
                 diagnostic,
                 diagnosticDetail,

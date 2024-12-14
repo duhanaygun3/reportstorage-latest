@@ -3,6 +3,7 @@ package com.example.Laborant.webApi.controllers;
 import java.util.List;
 
 import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -20,6 +21,8 @@ import lombok.AllArgsConstructor;
 
 @RestController
 @RequestMapping("api/patients")
+@CrossOrigin(origins = "http://localhost:3000")
+
 @AllArgsConstructor
 public class PatientController {
 

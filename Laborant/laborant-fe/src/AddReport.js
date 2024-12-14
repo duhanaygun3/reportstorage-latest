@@ -20,8 +20,8 @@ const AddReport = ({ history }) => {
     useEffect(() => {
         const fetchPatientsAndLaborants = async () => {
             try {
-                const patientsResponse = await axios.get('/api/patients'); // Patient API endpoint'ini çağırıyoruz
-                const laborantsResponse = await axios.get('/api/laborants'); // Laborant API endpoint'ini çağırıyoruz
+                const patientsResponse = await axios.get('http://localhost:8080/api/patients'); // Patient API endpoint'ini çağırıyoruz
+                const laborantsResponse = await axios.get('http://localhost:8080/api/laborants'); // Laborant API endpoint'ini çağırıyoruz
                 setPatients(patientsResponse.data);
                 setLaborants(laborantsResponse.data);
                 setLoading(false);
@@ -48,7 +48,7 @@ const AddReport = ({ history }) => {
         try {
             console.log("Form Verileri: ", form); // Verileri konsola yazdırarak kontrol edin
             // Güncel API endpoint'i ile POST isteği
-            await axios.post('/api/reports/add', {
+            await axios.post('http://localhost:8080/api/reports/add', {
                 diagnostic: form.diagnostic,
                 diagnosticDetail: form.diagnosticDetail,
                 reportDate: form.reportDate,

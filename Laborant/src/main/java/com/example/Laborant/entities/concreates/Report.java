@@ -1,6 +1,6 @@
 package com.example.Laborant.entities.concreates;
 
-import java.sql.Date;
+import java.time.LocalDate;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -29,7 +29,7 @@ public class Report {
 
     @Column(name = "ReportDate")
     @Temporal(TemporalType.DATE)
-    private Date reportDate;
+    private LocalDate reportDate;
 
     @Lob // JPA'nin büyük boyutlu veri türlerini desteklemek için kullanılan bir
          // anotasyondur

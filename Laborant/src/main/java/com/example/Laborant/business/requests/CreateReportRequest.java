@@ -1,7 +1,8 @@
 package com.example.Laborant.business.requests;
 
-import java.sql.Date;
 import java.time.LocalDate;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -16,7 +17,8 @@ public class CreateReportRequest {
 
     private String diagnosticDetail;
 
-    private Date reportDate;
+    @JsonFormat(pattern = "yyyy-MM-dd")
+    private LocalDate reportDate;
 
     // private byte[] photo;
 
@@ -29,8 +31,7 @@ public class CreateReportRequest {
     // private Laborant laborant;
 
     public void setReportDate(String dateString) {
-        LocalDate localDate = LocalDate.parse(dateString);
-        this.reportDate = Date.valueOf(localDate);
+        this.reportDate = LocalDate.parse(dateString); // String formatında gelen tarihi LocalDate'e çeviriyoruz
     }
 
 }
