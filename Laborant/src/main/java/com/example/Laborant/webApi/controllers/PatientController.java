@@ -28,7 +28,7 @@ public class PatientController {
 
     private PatientService patientService;
 
-    @PostMapping
+    @PostMapping("/add")
     @ResponseStatus(code = HttpStatus.CREATED)
     public void add(@RequestBody CreatePatientRequest createPatientRequest) {
         patientService.add(createPatientRequest);
