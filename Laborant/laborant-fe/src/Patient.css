@@ -1,0 +1,66 @@
+.patient-container {
+    margin: 20px;
+    font-family: Arial, sans-serif;
+}
+
+.title {
+    text-align: center;
+    color: #333;
+}
+
+.patient-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 18px;
+    text-align: left;
+}
+
+.patient-table th, 
+.patient-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+.patient-table th {
+    background-color: #f4f4f4;
+    color: #333;
+    font-weight: bold;
+    padding: 10px 20px; /* Hücrelerin iç boşluğunu artır */
+    text-align: center; /* Metni ortala */
+}
+
+.patient-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.patient-table tr:hover {
+    background-color: #f1f1f1;
+}
+
+.add-btn, .edit-btn, .delete-btn {
+    background-color: #4CAF50; /* Yeşil */
+    border: none;
+    color: white;
+    padding: 5px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 2px 1px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.edit-btn {
+    background-color: #2196F3; /* Mavi */
+}
+
+.delete-btn {
+    background-color: #f44336; /* Kırmızı */
+}
+
+.add-btn {
+    display: block;
+    margin: 20px auto;
+}

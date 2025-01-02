@@ -21,7 +21,7 @@ const AddReport = ({ history }) => {
         const fetchPatientsAndLaborants = async () => {
             try {
                 const patientsResponse = await axios.get('http://localhost:8080/api/patients'); // Patient API endpoint'ini çağırıyoruz
-                const laborantsResponse = await axios.get('http://localhost:8080/api/laborants'); // Laborant API endpoint'ini çağırıyoruz
+                const laborantsResponse = await axios.get('http://localhost:8080/api/laborants/getall'); // Laborant API endpoint'ini çağırıyoruz
                 setPatients(patientsResponse.data);
                 setLaborants(laborantsResponse.data);
                 setLoading(false);
@@ -56,7 +56,7 @@ const AddReport = ({ history }) => {
                 laborant_id: form.laborantId // laborant_id'yi de gönderiyoruz
             });
             alert('Report added successfully!');
-            history.push('/reports'); // Kullanıcıyı raporlar sayfasına yönlendir
+            history.push('/'); // Kullanıcıyı raporlar sayfasına yönlendir
         } catch (error) {
             console.error('Error adding report:', error);
             alert('An error occurred while adding the report.');

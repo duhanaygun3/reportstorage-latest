@@ -1,0 +1,37 @@
+.header-bar {
+    position: fixed; /* Header'ı sabitler */
+    top: 0; /* En üst tarafa yerleştirir */
+    left: 0; /* Sol kenara dayar */
+    width: 100%; /* Genişliği tam sayfa yapar */
+    background-color: #544e4e; /* Arka plan rengi */
+    color: rgb(70, 66, 66); /* Yazı rengi */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Hafif bir gölge ekler */
+}
+
+.header-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: white;
+}
+
+.header-nav {
+    display: flex;
+    gap: 10px;
+}
+
+.nav-btn {
+    background-color: #555;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.nav-btn:hover {
+    background-color: #777;
+}

@@ -30,18 +30,18 @@ public class LaborantController {
 
     private LaborantService laborantService;
 
-    @GetMapping()
+    @GetMapping("/getall")
     public List<GetAllLaborantsResponse> getLaborants() {
         return laborantService.getAll();
     }
 
-    @PostMapping
+    @PostMapping("/add")
     @ResponseStatus(code = HttpStatus.CREATED)
     public void add(@RequestBody CreateLaborantRequest createLaborantRequest) {
         laborantService.add(createLaborantRequest);
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/delete/{id}")
     public void deleteLaborant(@PathVariable int id) {
         laborantService.delete(id);
 
